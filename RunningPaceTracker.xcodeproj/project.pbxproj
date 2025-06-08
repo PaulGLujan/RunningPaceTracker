@@ -11,6 +11,7 @@
 		0D33C0932DF467EB00DCC9E8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D33C0922DF467EB00DCC9E8 /* ContentView.swift */; };
 		0D33C0952DF467EF00DCC9E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D33C0942DF467EF00DCC9E8 /* Assets.xcassets */; };
 		0D33C0982DF467EF00DCC9E8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D33C0972DF467EF00DCC9E8 /* Preview Assets.xcassets */; };
+		0D33C09F2DF4692800DCC9E8 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D33C09E2DF4692800DCC9E8 /* LocationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		0D33C0922DF467EB00DCC9E8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0D33C0942DF467EF00DCC9E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0D33C0972DF467EF00DCC9E8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		0D33C09E2DF4692800DCC9E8 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 				0D33C0922DF467EB00DCC9E8 /* ContentView.swift */,
 				0D33C0942DF467EF00DCC9E8 /* Assets.xcassets */,
 				0D33C0962DF467EF00DCC9E8 /* Preview Content */,
+				0D33C09E2DF4692800DCC9E8 /* LocationManager.swift */,
 			);
 			path = RunningPaceTracker;
 			sourceTree = "<group>";
@@ -139,6 +142,7 @@
 			files = (
 				0D33C0932DF467EB00DCC9E8 /* ContentView.swift in Sources */,
 				0D33C0912DF467EB00DCC9E8 /* RunningPaceTrackerApp.swift in Sources */,
+				0D33C09F2DF4692800DCC9E8 /* LocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,6 +274,7 @@
 				DEVELOPMENT_TEAM = 35277RN796;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Your location is used to track your distance and pace during your runs.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -299,6 +304,7 @@
 				DEVELOPMENT_TEAM = 35277RN796;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Your location is used to track your distance and pace during your runs.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

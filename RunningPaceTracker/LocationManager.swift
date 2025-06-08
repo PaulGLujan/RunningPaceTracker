@@ -4,6 +4,8 @@ import AVFoundation
 
 class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
 
+    private let metersPerMile: CLLocationDistance = 1609.344 // 1 mile = 1609.344 meters
+    
     private let locationManager = CLLocationManager()
     private let speechSynthesizer = AVSpeechSynthesizer()
 
@@ -86,7 +88,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         // Calculate and speak pace based on current speed
         if currentSpeed > 0 { // Avoid division by zero
             let secondsPerMeter = 1.0 / currentSpeed
-            let secondsPerMile = secondsPerMeter * 1609.34 // 1 mile = 1609.34 meters
+            let secondsPerMile = secondsPerMeter * metersPerMile
             let minutes = Int(secondsPerMile / 60)
             let seconds = Int(secondsPerMile.truncatingRemainder(dividingBy: 60))
             currentPace = String(format: "%d:%02d min/mile", minutes, seconds)
@@ -96,10 +98,10 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
 
         // Announce pace every 0.1 miles
         let announcementIntervalMiles: CLLocationDistance = 0.1 // Announce every 0.1 miles
-        let announcementIntervalMeters = announcementIntervalMiles * 1609.34
+        let announcementIntervalMeters = announcementIntervalMiles * metersPerMile
 
         if totalDistance >= lastAnnouncedDistance + announcementIntervalMeters {
-            let speechString = "Your current pace is \(currentPace). Total distance \(String(format: "%.1f", totalDistance / 1609.34)) miles."
+            let speechString = "Your current pace is \(currentPace). Total distance \(String(format: "%.1f", totalDistance / metersPerMile)) miles."
             speak(text: speechString)
             lastAnnouncedDistance += announcementIntervalMeters
             // If you want to announce at exact tenth mile points, reset lastAnnouncedDistance to totalDistance rounded down.

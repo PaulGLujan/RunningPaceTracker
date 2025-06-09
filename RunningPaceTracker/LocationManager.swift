@@ -3,8 +3,6 @@ import CoreLocation
 import AVFoundation
 
 class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
-
-    private let metersPerMile: CLLocationDistance = 1609.344 // 1 mile = 1609.344 meters
     
     private let locationManager = CLLocationManager()
     private let speechSynthesizer = AVSpeechSynthesizer()
@@ -14,6 +12,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var currentSpeed: CLLocationSpeed = 0.0 // meters per second
     @Published var totalDistance: CLLocationDistance = 0.0 // meters
     @Published var currentPace: String = "N/A" // e.g., "7:30 min/mile"
+    @Published var metersPerMile: CLLocationDistance = 1609.344 // 1 mile = 1609.344 meters
 
     private var previousLocation: CLLocation?
     private var lastAnnouncedDistance: CLLocationDistance = 0.0
@@ -22,6 +21,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
 
     override init() {
         super.init()
+        print("initializing...")
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation // High accuracy for running
         locationManager.distanceFilter = 10 // Update every 10 meters, adjust as needed

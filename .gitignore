@@ -1,0 +1,47 @@
+# Xcode
+#
+.DS_Store
+*.xcodeproj
+xcuserdata/
+build/
+*.xcworkspace
+!*.xcodeproj/project.xcworkspace
+!*.xcworkspace/contents.xcworkspacedata
+
+# Swift Package Manager
+.swiftpm/
+.build/
+
+# CocoaPods
+Pods/
+.symlinks/
+External/
+
+# Carthage
+Carthage/Build/
+
+# fastlane
+fastlane/report.xml
+fastlane/test_output/
+fastlane/screenshots/
+fastlane/log/
+fastlane/app_store_screenshots/
+
+# xcode-misc
+DerivedData/
+*.xcactivitylog
+*.xcscheme
+!default.xcscheme
+*.playground/timeline.xctimeline
+*.playground/playground.xcworkspace
+*.playground/xcuserdata/
+
+# Swift Playgrounds (if you add any to the project)
+*.playground/
+
+# Optional: Add your specific files if you have any
+# For example, if you store API keys not in .gitignore:
+# APIKeys.swift
+
+# Bundle (if you're not committing the .app bundle)
+# *.app/

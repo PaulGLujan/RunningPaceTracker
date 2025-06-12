@@ -13,6 +13,7 @@
 		0D33C0982DF467EF00DCC9E8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D33C0972DF467EF00DCC9E8 /* Preview Assets.xcassets */; };
 		0D33C09F2DF4692800DCC9E8 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D33C09E2DF4692800DCC9E8 /* LocationManager.swift */; };
 		0D4B81152DF76F040050B46A /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 0D4B81142DF76F040050B46A /* README.md */; };
+		0D5758B02DFB4C0400BC546A /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 0D5758AF2DFB4BFC00BC546A /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		0D33C09E2DF4692800DCC9E8 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		0D33C0A02DF693D800DCC9E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		0D4B81142DF76F040050B46A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		0D5758AF2DFB4BFC00BC546A /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +42,7 @@
 		0D33C0842DF467EB00DCC9E8 = {
 			isa = PBXGroup;
 			children = (
+				0D5758AF2DFB4BFC00BC546A /* .gitignore */,
 				0D4B81142DF76F040050B46A /* README.md */,
 				0D33C08F2DF467EB00DCC9E8 /* RunningPaceTracker */,
 				0D33C08E2DF467EB00DCC9E8 /* Products */,
@@ -133,6 +136,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D5758B02DFB4C0400BC546A /* .gitignore in Resources */,
 				0D4B81152DF76F040050B46A /* README.md in Resources */,
 				0D33C0982DF467EF00DCC9E8 /* Preview Assets.xcassets in Resources */,
 				0D33C0952DF467EF00DCC9E8 /* Assets.xcassets in Resources */,

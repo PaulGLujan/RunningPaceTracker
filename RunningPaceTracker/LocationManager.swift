@@ -2,7 +2,7 @@ import Foundation
 import CoreLocation
 import AVFoundation
 
-class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
+class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate, AVSpeechSynthesizerDelegate {
     
     private let locationManager = CLLocationManager()
     private let speechSynthesizer = AVSpeechSynthesizer()
@@ -21,11 +21,22 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
 
     override init() {
         super.init()
-        print("initializing...")
+        print("initializing LocationManger...")
         locationManager.delegate = self
+        speechSynthesizer.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation // High accuracy for running
         locationManager.distanceFilter = 10 // Update every 10 meters, adjust as needed
         locationManager.activityType = .fitness // Optimized for fitness activities
+        
+        do {
+            try AVAudioSession.sharedInstance().setCategory(
+                .ambient // Allows for app audio to play while phone is on silent mode
+                , options: [.mixWithOthers])
+            try AVAudioSession.sharedInstance().setActive(true)
+            print("AVAudioSession configured for playback and active.")
+        } catch {
+            print("Failed to set audio session category or active session: \(error.localizedDescription)")
+        }
     }
 
     // MARK: - Location Authorization
@@ -128,10 +139,55 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
 
     // MARK: - Text-to-Speech
 
-    func speak(text: String) {
+    internal func speak(text: String) {
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US") // You can change language
-        utterance.rate = 0.5 // Adjust speech rate (0.0 - 1.0)
+        utterance.rate = AVSpeechUtteranceDefaultSpeechRate
+        
+        
+        // Change audio session to .playback with .duckOthers BEFORE speaking
+        do {
+            try AVAudioSession.sharedInstance().setCategory(
+                .playback,
+                options: [.duckOthers]
+            )
+            try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
+            print("AVAudioSession changed to playback with duckOthers before speaking.")
+        } catch {
+            print("Failed to set audio session for speaking: \(error.localizedDescription)")
+            // If setting failed, don't try to speak
+            return
+        }
+        
+        // Stop any current speech if necessary, then speak
+        if speechSynthesizer.isSpeaking {
+            speechSynthesizer.stopSpeaking(at: .word)
+        }
         speechSynthesizer.speak(utterance)
+        print("Speaking: \(text)")
+    }
+    
+    // This delegate method is called when an utterance has finished
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
+
+        do {
+            // Explicitly DEACTIVATE the session first.
+            // This tells the app it is done with its "active" ducking state.
+            try AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
+            print("AVAudioSession deactivated before reverting.")
+
+            // Set the category back to ambient (after deactivation)
+            try AVAudioSession.sharedInstance().setCategory(
+                .ambient,
+                options: [.mixWithOthers]
+            )
+
+            // ACTIVATE the ambient session again.
+            // This tells the app to bring back the audo but non-ducking state.
+            try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
+            print("AVAudioSession reverted to ambient and reactivated after speaking.")
+        } catch {
+            print("Failed to revert audio session to ambient: \(error.localizedDescription)")
+        }
     }
 }

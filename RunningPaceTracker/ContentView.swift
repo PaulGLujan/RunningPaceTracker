@@ -65,6 +65,20 @@ struct ContentView: View {
             }
 
             Spacer()
+            
+            Button {
+                locationManager.speak(text: "Hello this is testing the speak system. One, two three.")
+            } label: {
+                Text("Test Speech")
+                    .font(.title3)
+                    .padding()
+                    .background(Color.blue)
+                    .foregroundColor(Color.white)
+                    .cornerRadius(10)
+            }
+            .padding(.bottom)
+            
+            Spacer()
         }
         .onAppear {
             // Request authorization when the view appears if it hasn't been requested yet

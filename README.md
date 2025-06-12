@@ -3,7 +3,10 @@
 A simple iOS application built with **SwiftUI** and **Core Location** to track your running pace, distance, and provide real-time voice feedback. This project serves as an introductory dive into iOS app development.
 
 ## 📸 Screenshots
-Coming soon...
+
+### Main Screen
+![Main Screen](Screenshots/main_screen.png)
+_A simple MVP interface displaying current pace and distance._
 
 ## ✨ Features
 

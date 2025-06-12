@@ -5,7 +5,7 @@ A simple iOS application built with **SwiftUI** and **Core Location** to track y
 ## 📸 Screenshots
 
 ### Main Screen
-![Main Screen](Screenshots/main_screen.png)
+<img src="Screenshots/main_screen.png" width="280" alt="Main Screen">
 
 _A simple MVP interface displaying current pace and distance._
 

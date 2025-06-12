@@ -11,6 +11,8 @@ Coming soon...
 *   **Distance Calculation:** Shows your total distance covered.
 *   **Speed Display:** Shows your current speed in miles per hour.
 *   **Voice Announcements:** Provides spoken updates on your pace and total distance every 0.1 miles.
+    * **Audio Ducking:** Temporarily lowers the volume of other background audio (like music) during voice announcements.
+    * **Silent Mode Compatibility:** Voice feedback plays even when the iPhone's silent switch is on.
 *   **Location Authorization Handling:** Handles user permissions for location services.
 *   **Background Tracking:** Continues tracking and providing voice feedback even when the app is in the background or the screen is off (requires explicit user permission).
 
@@ -67,10 +69,11 @@ Follow these steps to set up and run the project on your local machine.
 4.  **Simulate Movement (Simulator Only):**
     
     *   If using a simulator, once the app is running, go to your Mac's menu bar: **`Debug > Location`** and select **"City Run"** or **"Freeway Drive"** to simulate movement.
+    * To test audio with silent mode on the simulator, ensure device bezels are visible (`Window > Show Device Bezels`), then click the physical Ring/Silent switch on the simulated device's bezel.
 5.  **Start Tracking:**
     
     *   Tap the **"Start Run"** button in the app to begin tracking.
-    *   You should see your pace and distance update, and hear voice announcements.
+    *   You should see your pace and distance update, and hear voice announcements, even with background music playing.
 
 ## 🗺️ Future Enhancements (Ideas)
 

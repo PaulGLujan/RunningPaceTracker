@@ -27,6 +27,8 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate, AV
         locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation // High accuracy for running
         locationManager.distanceFilter = 10 // Update every 10 meters, adjust as needed
         locationManager.activityType = .fitness // Optimized for fitness activities
+        locationManager.allowsBackgroundLocationUpdates = true
+        locationManager.pausesLocationUpdatesAutomatically = false
         
         do {
             try AVAudioSession.sharedInstance().setCategory(
